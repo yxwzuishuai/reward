@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: service-business
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/business/**
+          filters:
+            - StripPrefix=2

@@ -1,0 +1,19 @@
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# XML IDE config files
+**/.idea/**/*.xml
+
+# Build
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
