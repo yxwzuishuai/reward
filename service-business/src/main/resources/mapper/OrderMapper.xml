@@ -91,4 +91,16 @@
         </where>
     </select>
 
+    <!-- 根据订单号更新状态 -->
+    <update id="updateStatusByOrderNo">
+        UPDATE orders SET status = #{status} WHERE order_no = #{orderNo}
+    </update>
+
+    <!-- 根据订单号查询订单详情 -->
+    <select id="selectOrderDetailByOrderNo" resultMap="OrderDetailMap">
+        <include refid="orderDetailColumns"/>
+        <include refid="orderDetailJoins"/>
+        WHERE o.order_no = #{orderNo}
+    </select>
+
 </mapper>

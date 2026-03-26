@@ -41,4 +41,14 @@ public interface OrderMapper extends BaseMapper<Order> {
      * 查询总记录数
      */
     long countOrders(@Param("status") Integer status);
+
+    /**
+     * 根据订单号更新订单状态
+     */
+    int updateStatusByOrderNo(@Param("orderNo") String orderNo, @Param("status") int status);
+
+    /**
+     * 根据订单号查询订单详情
+     */
+    OrderDetailDTO selectOrderDetailByOrderNo(@Param("orderNo") String orderNo);
 }
