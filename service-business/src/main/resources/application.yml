@@ -64,6 +64,29 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+# Canal 配置
+canal:
+  server:
+    host: localhost
+    port: 11111
+  destination: example
+  subscribe: api-pro\\..*
+  batch-size: 1000
+  # 缓存同步监听的表（为空则监听所有表）
+  sync-tables:
+    - orders
+    - product_stock
+  # 数据迁移的表（为空则迁移所有表）
+  migration-tables:
+    - orders
+    - product_stock
+  # 数据迁移目标数据源
+  migration:
+    enabled: false
+    target-url: jdbc:mysql://localhost:3308/api-pro-new?useUnicode=true&characterEncoding=utf8mb4&serverTimezone=Asia/Shanghai
+    target-username: root
+    target-password: root
+
 # 多级缓存配置
 cache:
   caffeine:

@@ -10,6 +10,9 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
 
     private static final ThreadLocal<DataSourceType> CONTEXT = new ThreadLocal<>();
 
+    /**
+     * mysql每次获取数据库连接时走到
+      */
     @Override
     protected Object determineCurrentLookupKey() {
         DataSourceType type = CONTEXT.get();
